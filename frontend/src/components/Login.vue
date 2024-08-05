@@ -1,20 +1,31 @@
 <script setup>
 import { ref, onMounted} from 'vue';
-import  axios  from 'axios';
-import { useRoute } from 'vue-router';
+// import  axios  from 'axios';
+import { useAuthStore } from '../stores/auth'
 
-const router = useRoute();
+// import { useRouter } from 'vue-router';
+
+// const router = useRouter();
+const authStore = useAuthStore();
+
 const form =ref({
   email:'',
-  password:''
+  password:'',
 });
-const handleLogin= async () =>{
-  await axios.post('/login',{
-    email:form.value.email,
-    password:form.value.password
-  });
-  router.push("/");
-};
+
+// const getToken = async () =>
+// {
+//   await axios.get('/sanctum/csrf-cookie');
+// }
+// const handleLogin = async () => {
+//   await getToken();
+//         await axios.post('/login', {
+//             email: form.value.email,
+//             password: form.value.password,
+//         });
+//         router.push('/');
+   
+// };
 </script>
 <template>
 
@@ -24,7 +35,7 @@ const handleLogin= async () =>{
   <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
     <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Login</h2>
     
-    <form @submit.prevent="handleLogin">
+    <form @submit.prevent="authStore.handleLogin(form)">
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
         <input 
@@ -39,14 +50,15 @@ const handleLogin= async () =>{
         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
         <input 
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" 
-        type="password" placeholder="********"
+        type="password" 
+        placeholder=""
         v-model="form.password"
         
         >
       </div>
       
       <div class="flex items-center justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
           Sign In
         </button>
         <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
@@ -60,4 +72,3 @@ const handleLogin= async () =>{
 
 
 </template>
-
