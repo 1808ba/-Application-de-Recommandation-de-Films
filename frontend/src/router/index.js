@@ -14,6 +14,10 @@ const routes =[
     name : 'Register' ,
     component:()=>import("../components/Register.vue")
     },
+    {path:'/movie',
+    name : 'Movie' ,
+    component:()=>import("../components/Movie.vue")
+    },
 ];
 const router = createRouter({
     history: createWebHistory(),

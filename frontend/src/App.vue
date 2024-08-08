@@ -6,7 +6,7 @@ import Movie from './components/Movie.vue';
 <template>
 <main>
   <Nav />
-  <Movie />
+  <!-- <Movie /> -->
   <RouterView />
 </main>
 </template>
