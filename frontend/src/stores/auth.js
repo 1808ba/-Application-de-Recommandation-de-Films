@@ -42,7 +42,18 @@ export const useAuthStore = defineStore("auth",{
             async handleLogout(){
               await axios.post("/logout");
               this.authUser = null;
-            }
+            },
+
+            // async SaveMovie(data)  {
+            //   // await this.getToken();
+            //   await axios.post('/store', {        
+            //     movieName:data.movieName,
+            //     movieDescription:data.movieDescription,
+            //     trailerLink:data.trailerLink,
+            //     image:data.image,
+            //   });
+            //    this.router.push('/'); 
+            // },
     },
 });
 

@@ -11,9 +11,7 @@ const authStore = useAuthStore();
     
 </script>
 <template>
-    <!-- <h1>go and login</h1> -->
-    <!-- <h1>{{ user?.name }}</h1>
-    <p>{{ user?.email }}</p> -->
+   
     <div v-if="authStore.user">
         <h1>{{ authStore.user.name }}</h1>
         <p>{{ authStore.user.email }}</p>

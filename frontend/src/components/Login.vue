@@ -1,11 +1,9 @@
 <script setup>
-import { ref, onMounted} from 'vue';
-// import  axios  from 'axios';
+import { ref } from 'vue';
+
 import { useAuthStore } from '../stores/auth'
 
-// import { useRouter } from 'vue-router';
 
-// const router = useRouter();
 const authStore = useAuthStore();
 
 const form =ref({
@@ -13,19 +11,7 @@ const form =ref({
   password:'',
 });
 
-// const getToken = async () =>
-// {
-//   await axios.get('/sanctum/csrf-cookie');
-// }
-// const handleLogin = async () => {
-//   await getToken();
-//         await axios.post('/login', {
-//             email: form.value.email,
-//             password: form.value.password,
-//         });
-//         router.push('/');
-   
-// };
+
 </script>
 <template>
 

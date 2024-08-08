@@ -17,7 +17,8 @@ const authStore = useAuthStore();
         <template v-if="!authStore.user">
         <li class="navbar-item"><router-link :to="{name: 'Login'}"  class="navbar-link">Login</router-link></li>
         <li class="navbar-item"><router-link :to="{name: 'Register'}"  class="navbar-link">Register</router-link></li>
-        </template>
+  
+      </template>
         <template v-else>
      <!-- <li class="navbar-item"><router-link :to="{name: ''}"  class="navbar-link"></router-link></li> -->
      <li class="navbar-item" ><button @click="authStore.handleLogout">logout</button></li>
